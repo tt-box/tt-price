@@ -39,6 +39,12 @@ Polymer Price
         },
       },
 
+      /**
+       *
+       * @param price
+       * @param currency http://www.currency-iso.org/en/home/tables/table-a1.html
+       * @returns formatted price
+       */
       _priceFormatter: function (currency) {
         var formatter = new Intl.NumberFormat(this.locale, {
             style: 'currency',
@@ -54,7 +60,7 @@ Polymer Price
        * @returns The formatted price with currency
        */
       _formatPrice: function (price) {
-        var formatter = this._priceFormatter(price.currency);
+        var formatter = this._priceFormatter(price.currency/100);
         return formatter.format(price.amount);
       },
 
