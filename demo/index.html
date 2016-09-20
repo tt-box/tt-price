@@ -19,9 +19,13 @@
     <div class="vertical-section-container centered">
       <h3>Basic tt-price Demo</h3>
       <demo-snippet>
-        <template>
-          <tt-price></tt-price>
+        <template is="dom-bind" id="demo">
+          <tt-price price="[[price]]"></tt-price>
         </template>
+        <script>
+          var demo = document.querySelector('#demo');
+          this.demo.price= {amount: 31210.356, currency: 'EUR' } ;
+        </script>
       </demo-snippet>
     </div>
 

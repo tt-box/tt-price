@@ -11,10 +11,10 @@ Polymer Price
   <template>
     <style>
       :host {
-        display: block;
+        display: inline-block;
       }
     </style>
-    <h2>Hello [[prop1]]</h2>
+    [[_formatPrice(price)]]
   </template>
 
   <script>
@@ -23,10 +23,39 @@ Polymer Price
       is: 'tt-price',
 
       properties: {
-        prop1: {
+        /**
+         * locale as format like 'fr-FR'
+         */
+        locale: {
           type: String,
-          value: 'tt-price',
+          value: 'fr-FR'
         },
+        /**
+         * price object like
+         * { amount: 14, currency }
+         */
+        price: {
+          type: Object
+        },
+      },
+
+      _priceFormatter: function (currency) {
+        var formatter = new Intl.NumberFormat(this.locale, {
+            style: 'currency',
+            currency: currency,
+            minimumFractionDigits: 2,
+          });
+        return formatter;
+      },
+
+      /**
+       * Format the Price
+       * @param price with format { amount: 24.01, currency: 'EUR' }
+       * @returns The formatted price with currency
+       */
+      _formatPrice: function (price) {
+        var formatter = this._priceFormatter(price.currency);
+        return formatter.format(price.amount);
       },
 
     });
