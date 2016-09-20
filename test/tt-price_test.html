@@ -1,0 +1,32 @@
+<!doctype html>
+
+<html>
+  <head>
+    <title>tt-price test</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1, user-scalable=yes">
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+    <script src="../../web-component-tester/browser.js"></script>
+
+    <link rel="import" href="../tt-price.html">
+  </head>
+  <body>
+
+    <test-fixture id="basic">
+      <template>
+        <tt-price></tt-price>
+      </template>
+    </test-fixture>
+
+    <script>
+      suite('tt-price', function() {
+
+        test('instantiating the element works', function() {
+          var element = fixture('basic');
+          assert.equal(element.is, 'tt-price');
+        });
+
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,34 @@
+<link rel="import" href="../polymer/polymer.html">
+
+<!--
+`tt-price`
+Polymer Price
+
+@demo demo/index.html 
+-->
+
+<dom-module id="tt-price">
+  <template>
+    <style>
+      :host {
+        display: block;
+      }
+    </style>
+    <h2>Hello [[prop1]]</h2>
+  </template>
+
+  <script>
+    Polymer({
+
+      is: 'tt-price',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'tt-price',
+        },
+      },
+
+    });
+  </script>
+</dom-module>
