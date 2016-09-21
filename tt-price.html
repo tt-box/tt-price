@@ -63,7 +63,7 @@ Polymer Price
        */
       _formatPrice: function (price) {
         var formatter = this._priceFormatter(price.currency);
-        return formatter.format(price.amount/100);
+        return formatter.format(price.cent/100);
       },
 
     });
